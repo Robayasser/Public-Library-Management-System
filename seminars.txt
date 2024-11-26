@@ -1,0 +1,4 @@
+# Seminar Data: title|description|speaker
+AI in Modern Applications|Exploring the use of AI in various industries such as healthcare, finance, and robotics.|Dr. Jane Smith
+Advanced Programming Techniques|Learn advanced concepts and best practices in software development.|Ms. Emily Davis
+The Future of Space Exploration|An insight into upcoming space missions and technologies.|Dr. Michael Brown

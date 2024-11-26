@@ -1,0 +1,6 @@
+# Book Data: title|author|category|isBorrowed (1 for true, 0 for false)
+The Great Gatsby|F. Scott Fitzgerald|Fiction|0
+A Brief History of Time|Stephen Hawking|Science|0
+To Kill a Mockingbird|Harper Lee|Fiction|1
+1984|George Orwell|Dystopian|0
+The Art of War|Sun Tzu|Philosophy|1

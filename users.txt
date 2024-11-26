@@ -1,0 +1,4 @@
+# User Data: username|userID|password|borrowHistory
+emma_brown|U3|qwerty123|
+jane_smith|U2|securePass|The Art of War
+john_doe|U1|password123|To Kill a Mockingbird,1984
