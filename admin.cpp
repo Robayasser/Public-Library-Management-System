@@ -5,7 +5,7 @@
 
 // Function to manage books
 void Admin::manageBooks(std::vector<Book> &books) {
-  int choice;
+  int choice; //Saves the admin’s decision in a number.
   do {
     std::cout << "\nBook Management:";
     std::cout << "\n1. Add Book";
@@ -14,9 +14,9 @@ void Admin::manageBooks(std::vector<Book> &books) {
     std::cout << "\n4. View All Books";
     std::cout << "\n5. Return to Main Menu";
     std::cout << "\nEnter your choice: ";
-    std::cin >> choice;
+    std::cin >> choice; //saves the admins choice
 
-    switch (choice) {
+    switch (choice) { //checks what the admin picked
     case 1: {
       Book book;
       std::cout << "Enter book title: ";
@@ -24,9 +24,9 @@ void Admin::manageBooks(std::vector<Book> &books) {
       std::cout << "Enter book author: ";
       std::cin >> book.author;
       std::cout << "Enter book category: ";
-      std::cin >> book.category;
-      book.isBorrowed = false;
-      books.push_back(book);
+      std::cin >> book.category;// saves the category 
+      book.isBorrowed = false; // marks the book as "not borrowed"
+      books.push_back(book);// adds the book to the list
       std::cout << "Book added successfully!\n";
       break;
     }
@@ -38,19 +38,19 @@ void Admin::manageBooks(std::vector<Book> &books) {
       break;
     case 4:
       std::cout << "Books in library:\n";
-      for (const auto &book : books) {
+      for (const auto &book : books) { //goes through all books
         std::cout << "Title: " << book.title << ", Author: " << book.author
                   << ", Category: " << book.category
-                  << ", Borrowed: " << (book.isBorrowed ? "Yes" : "No") << "\n";
+                  << ", Borrowed: " << (book.isBorrowed ? "Yes" : "No") << "\n"; //shows each book's details
       }
       break;
     case 5:
       std::cout << "Returning to Main Menu...\n";
       break;
-    default:
+    default://if they picked anything else 
       std::cout << "Invalid choice. Try again.\n";
     }
-  } while (choice != 5);
+  } while (choice != 5); //Repeats the options until the admin picks 5 to quit
 }
 
 // Function to manage seminars
