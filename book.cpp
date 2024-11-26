@@ -1,10 +1,10 @@
 #include "book.h"
 #include <iostream>
 
-// Default constructor
+// Default constructor, empty book // sets emoty text
 Book::Book() : title(""), author(""), category(""), isBorrowed(false) {}
 
-// Parameterized constructor
+// Parameterized constructor // Takes inputs to customize
 Book::Book(const std::string &title, const std::string &author,
            const std::string &category, bool isBorrowed)
     : title(title), author(author), category(category), isBorrowed(isBorrowed) {
