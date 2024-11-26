@@ -1,27 +1,27 @@
 #include "library.h"
-#include <fstream>
+#include <fstream> //lets program read and write files 
 #include <iostream>
-#include <sstream>
+#include <sstream> // work with text data 
 
 void Library::loadData() {
   // Load books data
   std::ifstream booksFile("books.txt");
   if (booksFile.is_open()) {
-    std::string line;
-    while (getline(booksFile, line)) {
-      if (line[0] == '#')
+    std::string line; //prepares a place to store each line of the file
+    while (getline(booksFile, line)) {// reads the file line by line 
+      if (line[0] == '#') //skips comments 
         continue;
-      std::istringstream iss(line);
-      Book book;
+      std::istringstream iss(line); //turns lines into pieces to read 
+      Book book; // new book
       getline(iss, book.title, '|');
       getline(iss, book.author, '|');
-      getline(iss, book.category, '|');
+      getline(iss, book.category, '|'); //reads if book is ...
       int borrowed;
-      iss >> borrowed;
-      book.isBorrowed = (borrowed == 1);
-      books.push_back(book);
+      iss >> borrowed; //if the book is borrowed (1,0)
+      book.isBorrowed = (borrowed == 1); //mark as borrwed or not
+      books.push_back(book); //adds the book to the library list 
     }
-    booksFile.close();
+    booksFile.close();//closes the file after reading
     std::cout << "Books data loaded.\n";
     std::cout << "Books vector contents:\n";
     for (const auto &book : books) {
@@ -93,8 +93,8 @@ void Library::saveData() {
   std::ofstream booksFile("books.txt");
   if (booksFile.is_open()) {
     booksFile << "# Book Data: title|author|category|isBorrowed (1 for true, 0 "
-                 "for false)\n";
-    for (const auto &book : books) {
+                 "for false)\n";//header explaining format 
+    for (const auto &book : books) { // loops through all books 
       booksFile << book.title << "|" << book.author << "|" << book.category
                 << "|" << (book.isBorrowed ? 1 : 0) << "\n";
     }
@@ -110,13 +110,13 @@ void Library::saveData() {
       const std::string &username = pair.first; // Extract key (username)
       const User &user = pair.second;           // Extract value (User object)
       usersFile << username << "|" << user.userID << "|" << user.password
-                << "|";
+                << "|"; // saves data
       for (size_t i = 0; i < user.borrowHistory.size(); ++i) {
-        usersFile << user.borrowHistory[i];
+        usersFile << user.borrowHistory[i]; //loops through the users history 
         if (i < user.borrowHistory.size() - 1)
           usersFile << ","; // Comma-separated history
       }
-      usersFile << "\n";
+      usersFile << "\n"; // moves to the next line 
     }
     usersFile.close();
     std::cout << "Users data saved.\n";
@@ -138,7 +138,7 @@ void Library::saveData() {
 void Library::adminLogin() {
   std::cout << "Admin logged in.\n";
   int choice;
-  do {
+  do { // until the admin logs out
     std::cout << "\n1. Manage Books\n2. Manage Users\n3. Manage Seminars\n4. "
                  "Logout\n";
     std::cout << "Enter your choice: ";
@@ -170,9 +170,9 @@ void Library::userLogin() {
   std::cin >> password;
 
   auto it = userMap.find(username);
-  if (it != userMap.end() && it->second.password == password) {
+  if (it != userMap.end() && it->second.password == password) { //checks if username exists and password matches 
     std::cout << "Welcome, " << username << "!\n";
-    User &loggedInUser = it->second;
+    User &loggedInUser = it->second; //get the logged in user details
     int choice;
     do {
       std::cout << "\n1. Search Books\n2. Borrow Book\n3. View Borrow History\n"
