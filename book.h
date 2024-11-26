@@ -1,9 +1,9 @@
-#ifndef BOOK_H
+#ifndef BOOK_H // include this file only once
 #define BOOK_H
 
 #include <string>
 
-class Book {
+class Book { 
 public:
   // Data members
   std::string title;
@@ -14,10 +14,10 @@ public:
   // Constructors
   Book(); // Default constructor
   Book(const std::string &title, const std::string &author,
-       const std::string &category, bool isBorrowed = false);
+       const std::string &category, bool isBorrowed = false); //creates a book with given details 
 
   // Member functions
-  void display() const;
+  void display() const; // display details 
 };
 
 #endif
